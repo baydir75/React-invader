@@ -263,21 +263,29 @@ class App extends React.Component {
 		let invaders = []
 		let ID = 0
 		
+		let lignes = prompt("Combien de lignes d'ennemis voulez-vous ?");
+		let nbrsParLigne = prompt("Combien d'ennemis par lignes voulez vous ?");
 
-		for (let y = 0; y < 5; y++) {
+		if (!isNaN(lignes) && !isNaN(nbrsParLigne)) {
 
-			for (let x = 0; x < 11; x++) {
+			for (let y = 0; y < lignes; y++) {
 
-				invaders.push({
-
-					ID : ID++,
-					size : GAME.invader,
-					alive : true,
-					x : x * 5 + 50,
-					y : y * 5 + 50,
-					toRight : true
-				})
+				for (let x = 0; x < nbrsParLigne; x++) {
+	
+					invaders.push({
+	
+						ID : ID++,
+						size : GAME.invader,
+						alive : true,
+						x : x * 5 + 50,
+						y : y * 5 + 50,
+						toRight : true
+					})
+				}
 			}
+
+		} else {
+			this.init();
 		}
 
 
